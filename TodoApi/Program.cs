@@ -20,7 +20,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: MyAllowSpecificOrigins,
                       builder =>
                       {
-                          builder.WithOrigins("http://localhost:5500", "http://127.0.0.1:5500")
+                          builder.WithOrigins("http://localhost:3000", "http://localhost:5500")
                           .AllowAnyHeader()
                           .AllowAnyMethod();
                       });
@@ -45,22 +45,22 @@ app.Run();
 
 static async Task<IResult> GetAllTodos(TodoDb db)
 {
-    return TypedResults.Ok(await db.Todos.Select(x => new TodoItemDTO(x)).ToListAsync());
+    return TypedResults.Ok(await db.TodosTable.Select(x => new TodoItemDTO(x)).ToListAsync());
 }
 
 static async Task<IResult> GetDoneTodos(TodoDb db)
 {
-    return TypedResults.Ok(await db.Todos.Where(t => t.IsDone).Select(x => new TodoItemDTO(x)).ToListAsync());
+    return TypedResults.Ok(await db.TodosTable.Where(t => t.IsDone).Select(x => new TodoItemDTO(x)).ToListAsync());
 }
 
 static async Task<IResult> GetPriorityTodos(TodoDb db)
 {
-    return TypedResults.Ok(await db.Todos.Where(t => t.IsPriority).Select(x => new TodoItemDTO(x)).ToListAsync());
+    return TypedResults.Ok(await db.TodosTable.Where(t => t.IsPriority).Select(x => new TodoItemDTO(x)).ToListAsync());
 }
 
 static async Task<IResult> GetTodo(int id, TodoDb db)
 {
-    return await db.Todos.FindAsync(id)
+    return await db.TodosTable.FindAsync(id)
         is Todo todo
             ? TypedResults.Ok(new TodoItemDTO(todo))
             : TypedResults.NotFound();
@@ -73,10 +73,11 @@ static async Task<IResult> CreateTodo(TodoItemDTO todoItemDTO, TodoDb db)
         IsDone = todoItemDTO.IsDone,
         IsPriority = todoItemDTO.IsPriority,
         Name = todoItemDTO.Name,
-        Information = todoItemDTO.Information
+        Information = todoItemDTO.Information,
+        Date = todoItemDTO.Date,
     };
 
-    db.Todos.Add(todoItem);
+    db.TodosTable.Add(todoItem);
     await db.SaveChangesAsync();
 
     todoItemDTO = new TodoItemDTO(todoItem);
@@ -86,7 +87,7 @@ static async Task<IResult> CreateTodo(TodoItemDTO todoItemDTO, TodoDb db)
 
 static async Task<IResult> UpdateTodo(int id, TodoItemDTO todoItemDTO, TodoDb db)
 {
-    var todo = await db.Todos.FindAsync(id);
+    var todo = await db.TodosTable.FindAsync(id);
 
     if (todo is null) return TypedResults.NotFound();
 
@@ -94,6 +95,7 @@ static async Task<IResult> UpdateTodo(int id, TodoItemDTO todoItemDTO, TodoDb db
     todo.IsDone = todoItemDTO.IsDone;
     todo.IsPriority = todoItemDTO.IsPriority;
     todo.Information = todoItemDTO.Information;
+    todo.Date = todoItemDTO.Date;   
 
     await db.SaveChangesAsync();
 
@@ -102,9 +104,9 @@ static async Task<IResult> UpdateTodo(int id, TodoItemDTO todoItemDTO, TodoDb db
 
 static async Task<IResult> DeleteTodo(int id, TodoDb db)
 {
-    if (await db.Todos.FindAsync(id) is Todo todo)
+    if (await db.TodosTable.FindAsync(id) is Todo todo)
     {
-        db.Todos.Remove(todo);
+        db.TodosTable.Remove(todo);
         await db.SaveChangesAsync();
         return TypedResults.NoContent();
     }

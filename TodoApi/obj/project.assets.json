@@ -4061,11 +4061,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\aronh\\OneDrive - Kt. SG BLD\\IMS_Praktikum_SrvOce\\todoapp\\Backend\\TodoApi\\TodoApi\\TodoApi.csproj",
+      "projectUniqueName": "C:\\Users\\aronh\\OneDrive - Kt. SG BLD\\IMS_Praktikum_SrvOce\\todoapp2.0\\TodoApi\\TodoApi\\TodoApi.csproj",
       "projectName": "TodoApi",
-      "projectPath": "C:\\Users\\aronh\\OneDrive - Kt. SG BLD\\IMS_Praktikum_SrvOce\\todoapp\\Backend\\TodoApi\\TodoApi\\TodoApi.csproj",
+      "projectPath": "C:\\Users\\aronh\\OneDrive - Kt. SG BLD\\IMS_Praktikum_SrvOce\\todoapp2.0\\TodoApi\\TodoApi\\TodoApi.csproj",
       "packagesPath": "C:\\Users\\aronh\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\aronh\\OneDrive - Kt. SG BLD\\IMS_Praktikum_SrvOce\\todoapp\\Backend\\TodoApi\\TodoApi\\obj\\",
+      "outputPath": "C:\\Users\\aronh\\OneDrive - Kt. SG BLD\\IMS_Praktikum_SrvOce\\todoapp2.0\\TodoApi\\TodoApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\aronh\\AppData\\Roaming\\NuGet\\NuGet.Config",

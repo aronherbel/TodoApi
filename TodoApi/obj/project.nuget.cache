@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/vgoO6LKodhBHCv1THkdJtY6pJ3Tl1mu7tzV6T2RgygKMVcKQyPuYvcbvrU9kclYoEGc/JNcBbxbMtVgYyAAqA==",
+  "dgSpecHash": "5Ly85cqhRMbvfdvL2BqCIrYC3WUkT3xMQyWudgugr4iBmw2ojXtpk0R5w2VjMUHFrZECe/1v+Z9t+Km4JF6lIw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\aronh\\OneDrive - Kt. SG BLD\\IMS_Praktikum_SrvOce\\todoapp\\Backend\\TodoApi\\TodoApi\\TodoApi.csproj",
+  "projectFilePath": "C:\\Users\\aronh\\OneDrive - Kt. SG BLD\\IMS_Praktikum_SrvOce\\todoapp2.0\\TodoApi\\TodoApi\\TodoApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\aronh\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\aronh\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
